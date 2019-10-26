@@ -96,6 +96,11 @@ class IdWork
         }
 
         self::$lastTimestamp = $timestamp;
+
+        if (PHP_INT_SIZE === 4) {
+            return 0;
+        }
+
         $nextId = ((sprintf('%.0f', $timestamp) - sprintf(
             '%.0f',
             self::$twepoch
